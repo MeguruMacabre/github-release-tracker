@@ -41,6 +41,65 @@
     &quot;accountId&quot;: &quot;3f94f632-20bb-4667-bcb0-f9b1651c0923&quot;
   }
 }</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="3.7675512352337395E-33" />
+      <entry key="MS500" value="3.275004033483483E-7" />
+      <entry key="S2" value="0.024252436547882453" />
+      <entry key="S5" value="0.3073747622782795" />
+      <entry key="S10" value="1.1396519645506118" />
+      <entry key="S30" value="3.8616788211921533" />
+      <entry key="S60" value="5.505717536368683" />
+      <entry key="M2" value="6.621359527765256" />
+      <entry key="M5" value="7.413022856813682" />
+      <entry key="M10" value="7.700224625152746" />
+      <entry key="M15" value="7.79872409740733" />
+      <entry key="M30" value="7.898641932468528" />
+      <entry key="H1" value="7.949139556617147" />
+      <entry key="H2" value="7.97452425212446" />
+      <entry key="H4" value="7.987250722717626" />
+      <entry key="D1" value="7.9978735348013394" />
+      <entry key="W1" value="7.999696180400856" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0007661954081022" />
+      <entry key="MS500" value="1.2381596135475632" />
+      <entry key="S2" value="1.716957777703014" />
+      <entry key="S5" value="2.069691533682973" />
+      <entry key="S10" value="2.4290966566676833" />
+      <entry key="S30" value="3.3218950032669645" />
+      <entry key="S60" value="3.939826532311416" />
+      <entry key="M2" value="4.39684900606944" />
+      <entry key="M5" value="4.73824460666102" />
+      <entry key="M10" value="4.8654242348477705" />
+      <entry key="M15" value="4.909438702762252" />
+      <entry key="M30" value="4.954291564615904" />
+      <entry key="H1" value="4.977037748019944" />
+      <entry key="H2" value="4.988491728260722" />
+      <entry key="H4" value="4.994239060468567" />
+      <entry key="D1" value="4.999038896992838" />
+      <entry key="W1" value="4.999862676373673" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="8.810070078234408E-4" />
+      <entry key="MS500" value="0.3760913756911537" />
+      <entry key="S2" value="1.3386086240409385" />
+      <entry key="S5" value="2.146770220222313" />
+      <entry key="S10" value="3.3948872845235787" />
+      <entry key="S30" value="7.054163976858809" />
+      <entry key="S60" value="9.355448513265952" />
+      <entry key="M2" value="10.96392246443863" />
+      <entry key="M5" value="12.12682572898082" />
+      <entry key="M10" value="12.552923359502723" />
+      <entry key="M15" value="12.6995629749265" />
+      <entry key="M30" value="12.848574469349078" />
+      <entry key="H1" value="12.923982814700318" />
+      <entry key="H2" value="12.961914966468475" />
+      <entry key="H4" value="12.980938330857372" />
+      <entry key="D1" value="12.996820391504507" />
+      <entry key="W1" value="12.999545704936153" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1,
   &quot;fromUser&quot;: false
@@ -82,8 +141,9 @@
     <configuration name="go build github.com/MeguruMacabre/github-release-tracker/cmd/app" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="github-release-tracker" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$/cmd/app" />
+      <kind value="PACKAGE" />
+      <package value="github.com/MeguruMacabre/github-release-tracker/cmd/app" />
+      <directory value="$PROJECT_DIR$" />
       <auto_managed_config_id value="$PROJECT_DIR$/cmd/app" />
       <method v="2" />
     </configuration>
