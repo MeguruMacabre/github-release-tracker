@@ -1,0 +1,30 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Go binaries
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+/github-release-tracker
+/app
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Test coverage
+coverage.txt
+coverage.html
