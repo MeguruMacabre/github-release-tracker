@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/MeguruMacabre/github-release-tracker/internal/api"
+	"github.com/MeguruMacabre/github-release-tracker/internal/github"
 	"github.com/MeguruMacabre/github-release-tracker/internal/storage"
 )
 
@@ -23,24 +26,31 @@ func main() {
 
 	log.Println("Connected to PostgreSQL")
 
+	interval := 10 * time.Minute
+
+	if value := os.Getenv("POLL_INTERVAL"); value != "" {
+		interval, err = time.ParseDuration(value)
+		if err != nil || interval <= 0 {
+			log.Fatal("invalid POLL_INTERVAL: ", value)
+		}
+	}
+
+	go github.Run(context.Background(), pool, interval)
+
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /healthz", func(w http.ResponseWriter, r *http.Request) {
-		err := pool.Ping(r.Context())
-		if err != nil {
+		if err := pool.Ping(r.Context()); err != nil {
 			http.Error(w, "Database unavailable", http.StatusServiceUnavailable)
 			return
 		}
 
-		w.Write([]byte("OK"))
+		_, _ = w.Write([]byte("OK"))
 	})
 
 	api.Register(mux, pool)
 
 	log.Println("Server started on :8080")
 
-	err = http.ListenAndServe(":8080", mux)
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
