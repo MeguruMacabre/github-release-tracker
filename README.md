@@ -16,4 +16,6 @@
 На текущем этапе:
 
 ```bash
+docker compose up -d db  
+
 go run ./cmd/app
