@@ -6,10 +6,29 @@ services:
       POSTGRES_PASSWORD: tracker
       POSTGRES_DB: tracker
     ports:
-      - "5433:5432"
+      - "127.0.0.1:5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracker -d tracker"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://tracker:tracker@db:5432/tracker?sslmode=disable
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?Set TELEGRAM_BOT_TOKEN in .env}
+      POLL_INTERVAL: ${POLL_INTERVAL:-600s}
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
 
 volumes:
   postgres_data:
