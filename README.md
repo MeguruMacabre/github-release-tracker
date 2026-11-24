@@ -1,21 +1,30 @@
 # GitHub Release Tracker
 
-Сервис на Go для отслеживания новых релизов GitHub-репозиториев
-и отправки уведомлений через Telegram.
+Сервис на Go для отслеживания релизов GitHub-репозиториев
+с уведомлениями через Telegram.
 
 ## Стек
 
-- Go
-- PostgreSQL
-- GitHub REST API
-- Telegram Bot API
-- Docker Compose
+Go, PostgreSQL, GitHub REST API, Telegram Bot API, Docker Compose.
 
 ## Запуск
 
-На текущем этапе:
+Создать `.env` по примеру `.env.example`, указать токены GitHub и Telegram.
 
-```bash
-docker compose up -d db  
+Запустить:
 
-go run ./cmd/app
+`docker compose up --build -d`
+
+Завершить:
+
+`docker compose down`
+
+Проверка: http://localhost:8080/healthz
+
+## Команды бота
+
+- /start — приветствие
+- /help — справка
+- /add owner/repo — подписка
+- /remove owner/repo — удаление подписки
+- /list — список подписок
