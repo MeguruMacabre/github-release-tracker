@@ -1,0 +1,22 @@
+erDiagram
+    SUBSCRIPTIONS {
+        BIGINT id PK
+        BIGINT chat_id
+        TEXT repository
+        TIMESTAMPTZ created_at
+    }
+    RELEASES {
+        BIGINT id PK
+        TEXT repository
+        TEXT tag
+        TEXT url
+        TIMESTAMPTZ published_at
+    }
+    NOTIFICATIONS {
+        BIGINT id PK
+        BIGINT release_id FK
+        BIGINT chat_id
+        TIMESTAMPTZ created_at
+        TIMESTAMPTZ sent_at
+    }
+    RELEASES ||--o{ NOTIFICATIONS : "Содержит"

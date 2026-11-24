@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+.env
+.env.*
+!.env.example
+__MACOSX/
+**/._*
+.DS_Store
+*.zip
+*.log

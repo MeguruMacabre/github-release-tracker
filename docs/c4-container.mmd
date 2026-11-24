@@ -1,0 +1,23 @@
+flowchart LR
+    user["Пользователь<br/>Person"]
+    telegram["Telegram Bot API<br/>External Software System"]
+    github["GitHub REST API<br/>External Software System"]
+
+    subgraph tracker["GitHub Release Tracker — Software System"]
+        app["Go Application<br/>Container<br/>REST API, Telegram bot, GitHub poller, notification worker"]
+        db[("PostgreSQL 17<br/>Container<br/>subscriptions, releases, notifications")]
+    end
+
+    user <-->|"Команды и уведомления"| telegram
+    telegram <-->|"HTTPS / Bot API"| app
+    app -->|"HTTPS / releases/latest"| github
+    app <-->|"SQL / pgx"| db
+
+    classDef person fill:#DCEBFF,stroke:#3972B3,color:#17365D
+    classDef system fill:#D8F3DC,stroke:#2D6A4F,color:#173D28
+    classDef database fill:#EDE4FF,stroke:#6B46C1,color:#251544
+    classDef external fill:#EEEEEE,stroke:#777777,color:#333333
+    class user person
+    class app system
+    class db database
+    class telegram,github external

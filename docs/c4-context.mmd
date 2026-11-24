@@ -1,0 +1,16 @@
+flowchart LR
+    user["Пользователь<br/>Person"]
+    tracker["GitHub Release Tracker<br/>Software System"]
+    telegram["Telegram<br/>External Software System"]
+    github["GitHub<br/>External Software System"]
+
+    user -->|"Использует сервис через Telegram"| tracker
+    tracker <-->|"Получает команды и отправляет сообщения через Bot API"| telegram
+    tracker -->|"Запрашивает опубликованные релизы"| github
+
+    classDef person fill:#DCEBFF,stroke:#3972B3,color:#17365D
+    classDef system fill:#D8F3DC,stroke:#2D6A4F,color:#173D28
+    classDef external fill:#EEEEEE,stroke:#777777,color:#333333
+    class user person
+    class tracker system
+    class telegram,github external

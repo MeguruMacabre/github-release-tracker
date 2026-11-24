@@ -17,8 +17,10 @@
 .vscode/
 *.iml
 
-# macOS
+# macOS and archive metadata
 .DS_Store
+__MACOSX/
+._*
 
 # Logs and temporary files
 *.log
