@@ -1,6 +1,6 @@
 # GitHub Release Tracker
 
-GitHub Release Tracker — сервис для отслеживания новых релизов GitHub-репозиториев с уведомлениями в Telegram app.
+GitHub Release Tracker — сервис для отслеживания новых релизов GitHub-репозиториев с уведомлениями в Telegram.
 
 Мы разработали его на Go с использованием PostgreSQL, GitHub REST API и Telegram Bot API
 
